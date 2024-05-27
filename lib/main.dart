@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub/core/helper/on_generate_routes.dart';
-import 'package:fruits_hub/features/splash/ui/widgets/splash_view.dart';
+import 'package:fruits_hub/features/splash/ui/splash_view.dart';
 
 void main() {
   runApp(const FruitHub());
