@@ -13,9 +13,7 @@ class OnBoardingPageView extends StatelessWidget {
       controller: pageController,
       children: [
         PageViewItem(
-          isVisable:
-              (pageController.hasClients ? pageController.page!.round() : 0) ==
-                  0,
+          isVisable: true,
           image: Assets.imagesPageViewItem1Image,
           backgroundImage: Assets.imagesPageViewItem1BackgroundImage,
           subTitle:
@@ -39,15 +37,13 @@ class OnBoardingPageView extends StatelessWidget {
             ],
           ),
         ),
-        PageViewItem(
-          isVisable:
-              (pageController.hasClients ? pageController.page!.round() : 0) ==
-                  0,
+        const PageViewItem(
+          isVisable: false,
           image: Assets.imagesPageViewItem2Image,
           backgroundImage: Assets.imagesPageViewItem2BackgroundImage,
           subTitle:
               'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
-          title: const Text(
+          title: Text(
             'ابحث وتسوق',
             textAlign: TextAlign.center,
             style: TextStyle(
