@@ -45,16 +45,24 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
         DotsIndicator(
           dotsCount: 2,
           decorator: DotsDecorator(
-            color: AppColors.primaryColor.withOpacity(0.5),
+            color: currentPage != 1
+                ? AppColors.primaryColor.withOpacity(0.5)
+                : AppColors.primaryColor,
             activeColor: AppColors.primaryColor,
           ),
         ),
         const SizedBox(height: 29),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kHorizantalPadding),
-          child: CustomButton(
-            onPressed: () {},
-            text: 'ابدأ الان',
+        Visibility(
+          visible: currentPage == 1,
+          maintainAnimation: true,
+          maintainState: true,
+          maintainSize: true,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kHorizantalPadding),
+            child: CustomButton(
+              onPressed: () {},
+              text: 'ابدأ الان',
+            ),
           ),
         ),
         const SizedBox(height: 43),
