@@ -49,7 +49,6 @@ class OnBoardingPageView extends StatelessWidget {
             style: TextStyle(
               color: Color(0xFF0C0D0D),
               fontSize: 23,
-              fontFamily: 'Cairo',
               fontWeight: FontWeight.w700,
               height: 0,
             ),
