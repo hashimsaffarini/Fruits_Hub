@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub/constants.dart';
+import 'package:fruits_hub/core/widgets/custom_button.dart';
 import 'package:fruits_hub/core/widgets/custom_text_field.dart';
+import 'package:fruits_hub/features/auth/ui/widgets/have_an_account.dart';
 import 'package:fruits_hub/features/auth/ui/widgets/terms_and_conditions.dart';
 
 class SignupViewBody extends StatelessWidget {
@@ -8,25 +10,25 @@ class SignupViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: kHorizantalPadding,
         ),
         child: Column(
           children: [
-            SizedBox(height: 24),
-            CustomTextFormField(
+            const SizedBox(height: 24),
+            const CustomTextFormField(
               hintText: 'الأسم كامل',
               textInputType: TextInputType.name,
             ),
-            SizedBox(height: 16),
-            CustomTextFormField(
+            const SizedBox(height: 16),
+            const CustomTextFormField(
               hintText: 'البريد الإلكتروني',
               textInputType: TextInputType.emailAddress,
             ),
-            SizedBox(height: 16),
-            CustomTextFormField(
+            const SizedBox(height: 16),
+            const CustomTextFormField(
               hintText: 'كلمة المرور',
               textInputType: TextInputType.visiblePassword,
               suffixIcon: Icon(
@@ -34,8 +36,15 @@ class SignupViewBody extends StatelessWidget {
                 color: Color(0xffC9CECF),
               ),
             ),
-            SizedBox(height: 16),
-            TermsAndConditions(),
+            const SizedBox(height: 16),
+            const TermsAndConditions(),
+            const SizedBox(height: 30),
+            CustomButton(
+              text: 'إنشاء حساب',
+              onPressed: () {},
+            ),
+            const SizedBox(height: 26),
+            const HaveAnAccountWidget(),
           ],
         ),
       ),
