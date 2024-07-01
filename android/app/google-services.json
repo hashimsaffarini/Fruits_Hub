@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "435147053836",
-    "project_id": "fruits-f7bfa",
-    "storage_bucket": "fruits-f7bfa.appspot.com"
+    "project_number": "610223730092",
+    "project_id": "fruits-hub-5be2c",
+    "storage_bucket": "fruits-hub-5be2c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:435147053836:android:256e5682ec48d7e74e0729",
+        "mobilesdk_app_id": "1:610223730092:android:90ea271250261a07cc5e09",
         "android_client_info": {
-          "package_name": "com.example.app"
+          "package_name": "com.example.fruits_hub"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDih5Ag9jdnZpG1gdGb103b_QdVn67iJtQ"
+          "current_key": "AIzaSyDb-ww9B26o5yQJKtScRrh3XHS4tUD2Rbs"
         }
       ],
       "services": {
