@@ -42,4 +42,16 @@ class AuthRepoImpl extends AuthRepo {
       return left(ServerFailure('هناك خطأ ما, الرجاء المحاولة مرة اخرى'));
     }
   }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    try {
+      var user = await firebaseAuthService.signInWithGoogle();
+      return right(UserModel.fromFirebase(user));
+    } on CustomException catch (e) {
+      return left(ServerFailure(e.message));
+    } catch (e) {
+      return left(ServerFailure('هناك خطأ ما, الرجاء المحاولة مرة اخرى'));
+    }
+  }
 }
