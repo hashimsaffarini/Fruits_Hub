@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub/constants.dart';
+import 'package:fruits_hub/core/helper/build_error_bar.dart';
 import 'package:fruits_hub/core/widgets/custom_button.dart';
 import 'package:fruits_hub/core/widgets/custom_text_field.dart';
 import 'package:fruits_hub/core/widgets/password_field.dart';
@@ -19,6 +20,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password, name;
+  late bool isTermsAndConditionsChecked = false;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -54,18 +56,31 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 },
               ),
               const SizedBox(height: 16),
-              const TermsAndConditions(),
+              TermsAndConditions(
+                onChanged: (value) {
+                  setState(() {
+                    isTermsAndConditionsChecked = value;
+                  });
+                },
+              ),
               const SizedBox(height: 30),
               CustomButton(
                 text: 'إنشاء حساب',
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    context.read<SignupCubit>().createUserWithEmailAndPassword(
-                          email,
-                          password,
-                          name,
-                        );
+                    if (isTermsAndConditionsChecked) {
+                      context
+                          .read<SignupCubit>()
+                          .createUserWithEmailAndPassword(
+                            email,
+                            password,
+                            name,
+                          );
+                    } else {
+                      buildErrorBar(
+                          context, 'يجب الموافقة على الشروط والأحكام');
+                    }
                   } else {
                     setState(() {
                       autovalidateMode = AutovalidateMode.always;
@@ -82,5 +97,3 @@ class _SignupViewBodyState extends State<SignupViewBody> {
     );
   }
 }
-
-
